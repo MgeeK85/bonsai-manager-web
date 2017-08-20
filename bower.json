@@ -1,0 +1,41 @@
+{
+  "name": "bonsaiManagerWebApp",
+  "version": "0.0.1",
+  "main": "index.html",
+  "keywords": [
+    "bonsaiManager",
+    "Bonsai",
+    "Manager"
+  ],
+  "authors": [
+    "Mattia Casella"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular": "~1.5.5",
+    "angular-ui-router": "~0.2.18",
+    "angular-mocks": "~1.5.5",
+    "angular-resource": "~1.5.5",
+    "angular-route": "~1.5.5",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "fontawesome#~4.6.1",
+    "ng-dialog": "~0.6.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "~1.5.5"
+  }
+}

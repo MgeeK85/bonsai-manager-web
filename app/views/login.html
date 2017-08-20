@@ -1,0 +1,15 @@
+<div>
+    <div class="user-data" ng-show="login.user.data">
+        <div>
+            Welcome, {{login.user.data.username}}
+        </div>
+    </div>
+    <div class="login" ng-show="!login.user.data">
+
+        <button ng-click="login.facebookLogin()"><img src="//i.stack.imgur.com/LKMP7.png"></button>
+
+        <button ng-click="login.twitterLogin()">Sign-in TWITTER</button>
+
+        <button ng-click="login.googleLogin()">Sign-in GOOGLE+</button>
+    </div>
+</div>
