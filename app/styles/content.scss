@@ -1,0 +1,80 @@
+.app {
+  height: 100%;
+  display: flex;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  padding-top: 5em;
+}
+
+
+.fill-height-container {
+  height: 85%;
+}
+
+.fill-height {
+  height: 100%;
+}
+
+
+/* CAROUSEL */
+/* equal card height */
+.row-equal > div[class*='col-'] {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+.row-equal .card {
+  width: 100%;
+}
+
+/* ensure equal card height inside carousel */
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+  display: flex;
+}
+
+/* prevent flicker during transition */
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+  opacity: 0.5;
+  display: flex;
+}
+
+
+/* control image height */
+.card-img-top-250 {
+  max-height: 250px;
+  overflow:hidden;
+}
+
+
+@media (min-width: 48em) {
+  .content {
+    padding-top: 1em;
+    padding-left: 64px;
+  }
+
+
+  #top,
+  #bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  #top {
+    height: 60%;
+    top: 0;
+    background: url("images/shutterstock_220614172.jpg") no-repeat;
+  }
+
+  #bottom {
+    height: 40%;
+    bottom: 0;
+    background-color: #FFFFFF;
+  }
+}

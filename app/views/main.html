@@ -1,15 +1,71 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
+<div id="top">
 
-  <br/>
+  <div class="content">
 
-  <a ui-sref="app.login">
-    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Login
-  </a>
+    <div class="jumbotron">
+      <h1>'Allo, 'Allo!</h1>
+      <p class="lead">
+        <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+        Always a pleasure scaffolding your apps.
+      </p>
+
+      <br/>
+
+      <a ui-sref="app.login" ng-show="!main.user.data">
+        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Login
+      </a>
+
+      <div class="user-data" ng-show="main.user.data">
+        <div>
+          Welcome, {{main.user.data.username}}
+
+          <pre>{{main.user}}</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </div>
+
+<div id="bottom">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card card-block">
+                        <h4 class="card-title">Dashboard block 1</h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci aliquam autem distinctio explicabo facilis illum labore maxime minima, neque optio quo reiciendis sapiente sit soluta temporibus veniam.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-block">
+                        <h4 class="card-title">Dashboard block 2</h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus impedit ipsam itaque, qui quidem voluptate! Dignissimos et excepturi facilis illum magnam modi nam, nihil numquam sapiente sint. Ea, laudantium.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card card-block">
+                        <h4 class="card-title">Dashboard block 2</h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus impedit ipsam itaque, qui quidem voluptate! Dignissimos et excepturi facilis illum magnam modi nam, nihil numquam sapiente sint. Ea, laudantium.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 

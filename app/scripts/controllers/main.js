@@ -8,10 +8,11 @@
  * Controller of the bonsaiManagerWebApp
  */
 angular.module('bonsaiManagerWebApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', MainCtrl);
+
+    function MainCtrl($user) {
+
+        var vm = this;
+
+        vm.user = $user;
+    }

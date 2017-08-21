@@ -21,12 +21,30 @@ angular
           .state('app', {
               url:'/',
               views: {
+                  'sidebar': {
+                      templateUrl : 'views/sidebar.html',
+                      controller  : 'SidebarCtrl',
+                      controllerAs : 'sidebar'
+                  },
                   'content': {
                       templateUrl : 'views/main.html',
-                      controller  : 'MainCtrl'
+                      controller  : 'MainCtrl',
+                      controllerAs : 'main'
                   }
               }
 
+          })
+
+          // route for the dishdetail page
+          .state('app.bonsaidetail', {
+              url: 'detail/:id',
+              views: {
+                  'content@': {
+                      templateUrl : 'views/bonsaidetail.html',
+                      controller  : 'BonsaiDetailCtrl',
+                      contreoolerAs : 'detail'
+                  }
+              }
           })
 
           // route for the aboutus page
@@ -54,8 +72,8 @@ angular
                     // Transform **all** $http calls so that requests that go to `/`
                     // instead go to a different origin, in this case localhost:3000
                     if (req.url.charAt(0) === '/') {
-                        //req.url = 'http://localhost:3000' + req.url;
-                        req.url = 'https://bonsai-manager.mybluemix.net' + req.url;
+                        req.url = 'http://localhost:3000' + req.url;
+                        //req.url = 'https://bonsai-manager.mybluemix.net' + req.url;
 
                         console.log("interceptor req url: ", req.url);
 

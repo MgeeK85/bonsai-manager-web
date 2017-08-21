@@ -7,9 +7,17 @@
 
   <br/>
 
-  <a ui-sref="app.login">
+  <a ui-sref="app.login" ng-show="!main.user.data">
     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Login
   </a>
+
+  <div class="user-data" ng-show="main.user.data">
+    <div>
+      Welcome, {{main.user.data.username}}
+
+      <pre>{{main.user}}</pre>
+    </div>
+  </div>
 
 </div>
 

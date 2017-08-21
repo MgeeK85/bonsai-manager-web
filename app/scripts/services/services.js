@@ -19,8 +19,8 @@ angular.module('bonsaiManagerWebApp.services', [])
 
     .factory('$facebookLogin', function($user) {
         return function() {
-            //var url = 'http://localhost:3000/auth/facebook';
-            var url = 'https://bonsai-manager.mybluemix.net/auth/facebook';
+            var url = 'http://localhost:3000/auth/facebook';
+            //var url = 'https://bonsai-manager.mybluemix.net/auth/facebook';
 
             var ref = window.open(url, '_self', 'location=no');
 

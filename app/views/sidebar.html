@@ -1,0 +1,32 @@
+<div class="sidebar">
+
+    <ul class="sidebar-menu">
+        <li class="sidebar-item">
+            <a ui-sref="app" class="sidebar-link" title="Homepage">
+                <i class="fa fa-home"></i>
+                <span>home</span>
+            </a>
+        </li>
+        <li class="active sidebar-item">
+            <a ui-sref="app.bonsaidetail" class="sidebar-link">
+                <i class="fa fa-calendar"></i>
+                <span>detail</span>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="sidebar-menu">
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link">
+                <i class="fa fa-user"></i>
+                <span>settings</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link" @click="logout()">
+                <i class="fa fa-sign-out"></i>
+                <span>logout</span>
+            </a>
+        </li>
+    </ul>
+</div>

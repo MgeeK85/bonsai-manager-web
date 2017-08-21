@@ -22,8 +22,6 @@ var paths = {
     yeoman.app + '/bower_components/angular/angular.js',
     yeoman.app + '/bower_components/angular-mocks/angular-mocks.js',
     yeoman.app + '/bower_components/angular-resource/angular-resource.js',
-    yeoman.app + '/bower_components/angular-cookies/angular-cookies.js',
-    yeoman.app + '/bower_components/angular-sanitize/angular-sanitize.js',
     yeoman.app + '/bower_components/angular-route/angular-route.js',
     'test/mock/**/*.js',
     'test/spec/**/*.js'
