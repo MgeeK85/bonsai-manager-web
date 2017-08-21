@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('bonsaiManagerWebApp.services', [])
 
     .factory('$user', function(User) {
@@ -17,9 +19,10 @@ angular.module('bonsaiManagerWebApp.services', [])
 
     .factory('$facebookLogin', function($user) {
         return function() {
-            var url = 'http://localhost:3000/auth/facebook';
+            //var url = 'http://localhost:3000/auth/facebook';
+            var url = 'https://bonsai-manager.mybluemix.net/auth/facebook';
 
-            var ref = window.open(url, '_blank', 'location=no');
+            var ref = window.open(url, '_self', 'location=no');
 
             // For Cordova
             if (window.cordova) {
@@ -44,9 +47,10 @@ angular.module('bonsaiManagerWebApp.services', [])
 
     .factory('$googleLogin', function($user) {
         return function() {
-            var url = 'http://localhost:3000/auth/google';
+            //var url = 'http://localhost:3000/auth/google';
+            var url = 'https://bonsai-manager.mybluemix.net/auth/google';
 
-            var ref = window.open(url, '_blank', 'location=no');
+            var ref = window.open(url, '_self', 'location=no');
 
             // For Cordova
             if (window.cordova) {
@@ -71,9 +75,10 @@ angular.module('bonsaiManagerWebApp.services', [])
 
     .factory('$twitterLogin', function($user) {
         return function() {
-            var url = 'http://localhost:3000/auth/twitter';
+            //var url = 'http://localhost:3000/auth/twitter';
+            var url = 'https://bonsai-manager.mybluemix.net/auth/twitter';
 
-            var ref = window.open(url, '', 'location=no');
+            var ref = window.open(url, '_self', 'location=no');
 
             // For Cordova
             if (window.cordova) {

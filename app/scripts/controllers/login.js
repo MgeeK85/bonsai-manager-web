@@ -10,14 +10,19 @@
 angular.module('bonsaiManagerWebApp')
     .controller('LoginCtrl', LoginCtrl);
 
-    function LoginCtrl($http, $log, $facebookLogin, $googleLogin, $twitterLogin) {
+    function LoginCtrl($user, $facebookLogin, $googleLogin, $twitterLogin, $log) {
 
         var vm = this;
 
-
+        vm.user = $user;
 
         vm.facebookLogin = $facebookLogin;
         vm.googleLogin = $googleLogin;
         vm.twitterLogin = $twitterLogin;
+
+
+
+        vm.loggedIn = false;
+        vm.username = '';
 
     }
