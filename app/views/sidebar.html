@@ -4,13 +4,25 @@
         <li class="sidebar-item">
             <a ui-sref="app" class="sidebar-link" title="Homepage">
                 <i class="fa fa-home"></i>
-                <span>home</span>
+                <span>Homepage</span>
             </a>
         </li>
-        <li class="active sidebar-item">
-            <a ui-sref="app.bonsaidetail" class="sidebar-link">
-                <i class="fa fa-calendar"></i>
-                <span>detail</span>
+        <li ng-show="sidebar.loggedIn" class="sidebar-item"> <!-- active -->
+            <a ui-sref="app.newedit" class="sidebar-link" title="New-Edit">
+                <i class="fa fa-pencil-square-o"></i>
+                <span>New-Edit</span>
+            </a>
+        </li>
+        <li ng-show="sidebar.loggedIn" class="sidebar-item">
+            <a ui-sref="app.list" class="sidebar-link" title="List">
+                <i class="fa fa-list"></i>
+                <span>List</span>
+            </a>
+        </li>
+        <li ng-show="sidebar.loggedIn" class="sidebar-item">
+            <a href="#" class="sidebar-link" title="Search">
+                <i class="fa fa-search"></i>
+                <span>Search</span>
             </a>
         </li>
     </ul>
@@ -22,11 +34,24 @@
                 <span>settings</span>
             </a>
         </li>
+
+
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link" @click="logout()">
+
+            <a href="#" ng-show="!sidebar.loggedIn" class="sidebar-link" ng-click="sidebar.openLogin()">
+                <i class="fa fa-sign-in"></i>
+                <span>Login</span>
+            </a>
+
+            <a href="#" ng-show="sidebar.loggedIn" class="sidebar-link" ng-click="sidebar.logOut()">
                 <i class="fa fa-sign-out"></i>
                 <span>logout</span>
             </a>
+
+            <!--
+            <pre>{{sidebar.loggedIn}}</pre>
+            -->
         </li>
+
     </ul>
 </div>

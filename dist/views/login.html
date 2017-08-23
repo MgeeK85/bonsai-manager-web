@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     <div class="user-data" ng-show="login.user.data">
         <div>
             Welcome, {{login.user.data.username}}
@@ -14,4 +14,47 @@
 
         <button ng-click="login.googleLogin()">Sign-in GOOGLE+</button>
     </div>
+</div>-->
+
+
+
+
+<div class="ngdialog-message" ng-controller="LoginCtrl as login">
+    <div class="">
+        <h3>Login </h3>
+    </div>
+    <div class="">&nbsp;</div>
+    <div class="">
+        <form ng-submit="login.doLogin()">
+            <div class="form-group">
+                <label class="sr-only" for="username">Username</label>
+                <input type="text" class="form-control input-sm" id="username" placeholder="Username" ng-model="login.loginData.username">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="password">Password</label>
+                <input type="password" class="form-control input-sm" id="password" placeholder="Password" ng-model="login.loginData.password">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="login.rememberMe"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-info btn-sm">Sign in</button>
+            <button type="button" class="btn btn-default btn-sm" ng-click="login.closeThisDialog('Cancel')">Cancel</button> &nbsp; &nbsp;
+
+            <button class="btn btn-default btn-sm" ng-click="login.openRegister()">Click here to register</button>
+        </form>
+    </div>
+
+    <br/>
+
+    <div class="login" ng-show="!login.user.data">
+
+        <button ng-click="login.facebookLogin()"><img src="//i.stack.imgur.com/LKMP7.png"></button>
+
+        <button ng-click="login.twitterLogin()">Sign-in TWITTER</button>
+
+        <button ng-click="login.googleLogin()">Sign-in GOOGLE+</button>
+    </div>
+
 </div>

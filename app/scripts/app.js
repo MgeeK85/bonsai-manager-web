@@ -18,6 +18,7 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
       $stateProvider
+
           .state('app', {
               url:'/',
               views: {
@@ -35,29 +36,43 @@ angular
 
           })
 
-          // route for the dishdetail page
+          // route for the bonsai detail page
+          .state('app.newedit', {
+              url: 'newedit',
+              views: {
+                  'content@': {
+                      templateUrl : 'views/newedit.html',
+                      controller  : 'NewEditCtrl',
+                      controllerAs : 'newedit'
+                  }
+              }
+          })
+
+          // route for the bonsai detail page
+          .state('app.list', {
+              url: 'list',
+              views: {
+                  'content@': {
+                      templateUrl : 'views/list.html',
+                      controller  : 'ListCtrl',
+                      controllerAs : 'list'
+                  }
+              }
+          })
+
+          // route for the bonsai detail page
           .state('app.bonsaidetail', {
               url: 'detail/:id',
               views: {
                   'content@': {
                       templateUrl : 'views/bonsaidetail.html',
                       controller  : 'BonsaiDetailCtrl',
-                      contreoolerAs : 'detail'
-                  }
-              }
-          })
-
-          // route for the aboutus page
-          .state('app.login', {
-              url:'login',
-              views: {
-                  'content@': {
-                      templateUrl : 'views/login.html',
-                      controller  : 'LoginCtrl',
-                      controllerAs : 'login'
+                      controllerAs : 'detail'
                   }
               }
           });
+
+
 
       $urlRouterProvider.otherwise('/');
 

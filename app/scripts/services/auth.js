@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('bonsaiManagerWebApp')
-    .factory('AuthService', ['Customer', '$q', '$rootScope', 'ngDialog', function(Customer, $q,
-                                                                                  $rootScope, ngDialog) {
+    .factory('AuthService', ['User', '$q', '$rootScope', 'ngDialog', function(User, $q, $rootScope, ngDialog) {
+
         function login(loginData) {
-            return Customer
+            return User
                 .login(loginData)
                 .$promise
                 .then(function(response) {
@@ -18,8 +18,8 @@ angular.module('bonsaiManagerWebApp')
                     function(response){
 
                         var message = '\
-                <div class="ngdialog-message">\
-                <div><h3>Login Unsuccessful</h3></div>' +
+                            <div class="ngdialog-message">\
+                            <div><h3>Login Unsuccessful</h3></div>' +
                             '<div><p>' +  response.data.error.message + '</p><p>' +
                             response.data.error.name + '</p></div>' +
                             '<div class="ngdialog-buttons">\
@@ -39,16 +39,17 @@ angular.module('bonsaiManagerWebApp')
         }
 
         function logout() {
-            return Customer
+            return User
                 .logout()
                 .$promise
                 .then(function() {
                     $rootScope.currentUser = null;
+                    $rootScope.$broadcast('logout');
                 });
         }
 
         function register(registerData) {
-            return Customer
+            return User
                 .create({
                     username: registerData.username,
                     email: registerData.email,

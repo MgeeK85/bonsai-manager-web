@@ -2,21 +2,15 @@
 
     <ul class="sidebar-menu">
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link" title="Homepage">
+            <a ui-sref="app" class="sidebar-link" title="Homepage">
                 <i class="fa fa-home"></i>
                 <span>home</span>
             </a>
         </li>
         <li class="active sidebar-item">
-            <a href="detail.html" class="sidebar-link">
+            <a ui-sref="app.bonsaidetail" class="sidebar-link">
                 <i class="fa fa-calendar"></i>
-                <span>calendar</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="fa fa-key"></i>
-                <span>key</span>
+                <span>detail</span>
             </a>
         </li>
     </ul>
@@ -28,11 +22,29 @@
                 <span>settings</span>
             </a>
         </li>
+
+
+
+
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link" @click="logout()">
+            <!--<a href="app.login" class="sidebar-link" @click="logout()">
+                <i class="fa fa-sign-out"></i>
+                <span>logout</span>
+            </a>-->
+
+
+            <a ng-if="!sidebar.loggedIn" class="sidebar-link" ng-click="sidebar.openLogin()">
+                <i class="fa fa-sign-in"></i>
+                <span>Login</span>
+            </a>
+
+            <a ng-if="sidebar.loggedIn" class="sidebar-link" ng-click="sidebar.logOut()">
                 <i class="fa fa-sign-out"></i>
                 <span>logout</span>
             </a>
+
+            <pre>{{sidebar.loggedIn}}</pre>
         </li>
+
     </ul>
 </div>
