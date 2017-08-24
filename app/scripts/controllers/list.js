@@ -12,7 +12,7 @@
     angular.module('bonsaiManagerWebApp')
         .controller('ListCtrl', ListCtrl);
 
-    function ListCtrl($rootScope, AuthService) {
+    function ListCtrl($rootScope, User, AuthService) {
 
         var vm = this;
 
@@ -34,6 +34,26 @@
         function init() {
 
 
+            if(AuthService.isAuthenticated()) {
+
+                vm.loggedIn = true;
+                vm.username = AuthService.getUsername();
+
+                console.log("currentUser", vm.username);
+
+                User.bonsais({ id: 'me' })
+                    .$promise.then(
+                    function (response) {
+                        vm.bonsais = response;
+
+                        console.log("bonsais", vm.bonsais);
+
+                    },
+                    function (response) {
+                        vm.message = "Error: " + response.status + " " + response.statusText;
+                    });
+
+            }
 
         }
 
