@@ -6,45 +6,91 @@
             <div class="col-md-8 fill-height">
                 <div class="card fill-height">
                     <div class="card-body">
-                        <h4 class="card-title">Special title treatment</h4>
+                        <h4 class="card-title">Bonsai detail</h4>
                         <p class="card-text">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@TwBootstrap</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        </p>
 
+
+
+                        <form>
+
+                            <div class="form-row">
+
+                                <div class="form-group col-sm-8">
+                                    <!-- NAME -->
+                                    <div class="row">
+                                        <label for="staticName" class="col-sm-2 col-form-label font-weight-bold">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticName" value="{{detail.bonsai.name}}">
+                                        </div>
+                                    </div>
+
+                                    <!-- SPECIES -->
+                                    <div class="row">
+                                        <label for="staticSpecies" class="col-sm-2 col-form-label font-weight-bold">Species</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticSpecies" value="{{detail.bonsai.species}}">
+                                        </div>
+                                    </div>
+
+                                    <!-- STYLE -->
+                                    <div class="row">
+                                        <label for="staticStyle" class="col-sm-2 col-form-label font-weight-bold">Style</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticStyle" value="{{detail.bonsai.style}}">
+                                        </div>
+                                    </div>
+
+                                    <!-- AGE -->
+                                    <div class="row">
+                                        <label for="staticAge" class="col-sm-2 col-form-label font-weight-bold">Age</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticAge" value="{{detail.bonsai.age}}">
+                                        </div>
+                                    </div>
+
+                                    <!-- HEIGHT -->
+                                    <div class="row">
+                                        <label for="staticHeight" class="col-sm-2 col-form-label font-weight-bold">Height</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticHeight" value="{{detail.bonsai.height}}">
+                                        </div>
+                                    </div>
+
+                                    <!-- DIAMETER -->
+                                    <div class="row">
+                                        <label for="staticDiameter" class="col-sm-2 col-form-label font-weight-bold">Diameter</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticDiameter" value="{{detail.bonsai.diameter}}">
+                                        </div>
+                                    </div>
+
+                                    <!-- POT -->
+                                    <div class="row">
+                                        <label for="staticPot" class="col-sm-2 col-form-label font-weight-bold">Pot</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticPot" value="{{detail.bonsai.pot}}">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- IMAGE -->
+                                <div class="form-group col-sm-4">
+                                    <figure class="figure">
+                                        <img class="figure-img img-fluid rounded float-right" src="http://via.placeholder.com/250x350" alt="A generic square placeholder image with rounded corners in a figure.">
+                                        <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
+                                    </figure>
+                                </div>
+
+
+                                <!-- NOTES -->
+                                <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label font-weight-bold">Notes</label>
+                                <textarea class="form-control-plaintext cols-sm-10" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                            </div>
+
+                        </form>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -54,12 +100,10 @@
 
         <div class="row justify-content-md-center">
             <div class="col-md-8">
-                <button type="button" class="btn btn-danger pull-left">Danger</button>
-                <button type="button" class="btn btn-primary pull-right">Primary</button>
+                <button type="button" class="btn btn-danger pull-left" ng-click="detail.deleteBonsai()">Delete</button>
+                <button type="button" class="btn btn-primary pull-right" ui-sref="app.newedit({id: detail.bonsai.id})">Edit</button>
             </div>
         </div>
 
     </div>
-
-
 </div>

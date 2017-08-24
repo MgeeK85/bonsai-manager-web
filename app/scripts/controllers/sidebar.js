@@ -12,7 +12,7 @@
     angular.module('bonsaiManagerWebApp')
         .controller('SidebarCtrl', SidebarCtrl);
 
-    function SidebarCtrl($scope, $user, $state, $rootScope, $localStorage, $log, ngDialog, AuthService) {
+    function SidebarCtrl($scope, $state, $rootScope, $log, ngDialog, AuthService) {
 
         var vm = this;
 
@@ -32,7 +32,18 @@
         });
 
 
+        $scope.$watch('currentUser.id', function(value) {
+            if (!value) {
+                return;
+            }
 
+
+            console.log("value", value);
+
+            vm.loggedIn = true;
+            vm.username = AuthService.getUsername();
+
+        });
 
         init();
 
@@ -43,13 +54,6 @@
             vm.loggedIn = false;
             vm.username = '';
 
-            $scope.loginData = $localStorage.getObject('userinfo','{}');
-
-            console.log("user", $scope.loginData);
-
-            if($scope.loginData){
-                AuthService.login($scope.loginData);
-            }
 
             if(AuthService.isAuthenticated()) {
                 vm.loggedIn = true;

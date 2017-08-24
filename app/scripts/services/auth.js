@@ -72,10 +72,22 @@ angular.module('bonsaiManagerWebApp')
                     });
         }
 
+        function refresh(accessTokenId) {
+            return User
+                .getCurrent(function(userResource) {
+                    $rootScope.currentUser = {
+                        id: userResource.id,
+                        tokenId: accessTokenId,
+                        email: userResource.email
+                    };
+                });
+        }
+
         return {
             login: login,
             logout: logout,
             register: register,
+            refresh: refresh,
             isAuthenticated: isAuthenticated,
             getUsername: getUsername
         };

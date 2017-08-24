@@ -33,12 +33,11 @@ angular
                       controllerAs : 'main'
                   }
               }
-
           })
 
           // route for the bonsai detail page
           .state('app.newedit', {
-              url: 'newedit',
+              url: 'newedit/:id',
               views: {
                   'content@': {
                       templateUrl : 'views/newedit.html',
@@ -87,8 +86,8 @@ angular
                     // Transform **all** $http calls so that requests that go to `/`
                     // instead go to a different origin, in this case localhost:3000
                     if (req.url.charAt(0) === '/') {
-                        req.url = 'http://localhost:3000' + req.url;
-                        //req.url = 'https://bonsai-manager.mybluemix.net' + req.url;
+                        //req.url = 'http://localhost:3000' + req.url;
+                        req.url = 'https://bonsai-manager.mybluemix.net' + req.url;
 
                         console.log("interceptor req url: ", req.url);
 
@@ -100,4 +99,29 @@ angular
                 }
             };
         });
-    });
+    })
+
+    .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService',
+            function($rootScope, $state, LoopBackAuth, AuthService) {
+
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
+            // redirect to login page if not logged in
+            if (toState.authenticate && !LoopBackAuth.accessTokenId) {
+                event.preventDefault(); //prevent current page from loading
+            // Maintain returnTo state in $rootScope that is used
+            // by authService.login to redirect to after successful login.
+            // http://www.jonahnisenson.com/angular-js-ui-router-redirect-after-login-to-requested-url/
+                $rootScope.returnTo = {
+                    state: toState,
+                    params: toParams
+                };
+                $state.go('app');
+            }
+        });
+
+        // Get data from localstorage after pagerefresh
+        // and load user data into rootscope.
+        if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
+            AuthService.refresh(LoopBackAuth.accessTokenId);
+        }
+    }]);

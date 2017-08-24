@@ -18,6 +18,10 @@
   height: 100%;
 }
 
+.welcome-img {
+  width: 100%;
+}
+
 
 /* CAROUSEL */
 /* equal card height */
@@ -44,6 +48,11 @@
   display: flex;
 }
 
+.prev, .next {
+  position: absolute;
+  top: 50%;
+}
+
 
 /* control image height */
 .card-img-top-250 {
@@ -59,20 +68,20 @@
   }
 
 
-  #top,
-  #bottom {
+  .top,
+  .bottom {
     position: fixed;
     left: 0;
     right: 0;
   }
 
-  #top {
+  .top {
     height: 60%;
     top: 0;
     /*background: url("images/shutterstock_220614172.jpg") no-repeat;*/
   }
 
-  #bottom {
+  .bottom {
     height: 40%;
     bottom: 0;
     background-color: #FFFFFF;

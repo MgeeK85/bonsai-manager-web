@@ -1,78 +1,172 @@
 
 <div ng-show="!main.loggedIn">
-
-        <div class="content">
-            NOT LOGGED
-        </div>
-
+    <img class="welcome-img" src="../images/shutterstock_220614172.jpg" />
 </div>
 
 <div ng-show="main.loggedIn">
-    <div id="top">
-
+    <div class="top">
         <div class="content">
+            <div class="container-fluid">
 
-            <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">
-                    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-                    Always a pleasure scaffolding your apps.
-                </p>
-
-                <br/>
-
-                <div class="user-data">
-                    <div>
-                        Welcome, {{main.username}}
-
-                        <pre>{{main.user}}</pre>
+                <!-- HEADER -->
+                <div class="row">
+                    <div class="col col-sm-12">
+                        <h1>Bonsai Manager</h1>
                     </div>
                 </div>
 
-        </div>
+                <br/>
 
-    </div>
-
-    <div id="bottom">
-        <div class="content">
-            <div class="container-fluid">
+                <!-- CAROUSEL -->
                 <div class="row">
 
-
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Dashboard block 1</h4>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci aliquam autem distinctio explicabo facilis illum labore maxime minima, neque optio quo reiciendis sapiente sit soluta temporibus veniam.
-                                </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card ">
-                            <div class="card-body">
-                                <h4 class="card-title">Dashboard block 2</h4>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus impedit ipsam itaque, qui quidem voluptate! Dignissimos et excepturi facilis illum magnam modi nam, nihil numquam sapiente sint. Ea, laudantium.
-                                </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+                    <div class="col col-sm-1">
+                        <a class="btn btn-outline-secondary prev" href="" title="go back"><i class="fa fa-lg fa-chevron-left"></i></a>
                     </div>
 
-                    <div class="col-lg-4">
-                        <div class="card">
+
+                    <div class="col col-sm-10">
+                        <section class="carousel slide" data-ride="carousel" id="postsCarousel">
+
+                            <div class="container  carousel-inner">
+                                <div class="row row-equal carousel-item active">
+
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-img-top card-img-top-250">
+                                                <img class="img-fluid" src="http://i.imgur.com/EW5FgJM.png" alt="Carousel 1">
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="small text-wide">Insight</h6>
+                                                <h2>
+                                                    <a href>Why Stuff Happens Every Year.</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-img-top card-img-top-250">
+                                                <img class="img-fluid" src="http://i.imgur.com/Hw7sWGU.png" alt="Carousel 2">
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="small text-wide">Development</h6>
+                                                <h2>
+                                                    <a href>How to Make Every Line Count.</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-img-top card-img-top-250">
+                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 3">
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="small text-wide">Design</h6>
+                                                <h2>
+                                                    <a href>Responsive is Essential.</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row row-equal carousel-item">
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-img-top card-img-top-250">
+                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 4">
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="small text-wide">Another</h6>
+                                                <h2>
+                                                    <a href>Tagline or Call-to-action.</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-img-top card-img-top-250">
+                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 5">
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="small text-wide">Category 1</h6>
+                                                <h2>
+                                                    <a href>This is a Blog Title.</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 fadeIn wow">
+                                        <div class="card">
+                                            <div class="card-img-top card-img-top-250">
+                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 6">
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="small text-wide">Category 3</h6>
+                                                <h2>
+                                                    <a href>Catchy Title of a Blog Post.</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </section>
+                    </div>
+
+                    <div class="col col-sm-1">
+                        <a class="btn btn-outline-secondary next" href="" title="more"><i class="fa fa-lg fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div class="content">
+            <div class="container-fluid fill-height-container">
+
+                <div class="row fill-height">
+                    <div class="col-md-8 fill-height">
+
+
+                        <div class="card fill-height">
+                            <div class="card-header">
+                                <i class="fa fa-bar-chart"></i> Statistics
+                            </div>
                             <div class="card-body">
-                                <h4 class="card-title">Dashboard block 2</h4>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus impedit ipsam itaque, qui quidem voluptate! Dignissimos et excepturi facilis illum magnam modi nam, nihil numquam sapiente sint. Ea, laudantium.
-                                </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                box 1
+
+
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="col-md-4 fill-height">
+                        <div class="card fill-height">
+                            <div class="card-body">
+
+                                box 2
+
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -80,6 +174,14 @@
 </div>
 
 
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $('.next').click(function(){ $('.carousel').carousel('next');return false; });
+        $('.prev').click(function(){ $('.carousel').carousel('prev');return false; });
+    });
+</script>
 
 
 

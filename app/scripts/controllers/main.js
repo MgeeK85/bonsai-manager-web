@@ -12,7 +12,7 @@
     angular.module('bonsaiManagerWebApp')
         .controller('MainCtrl', MainCtrl);
 
-        function MainCtrl($rootScope, AuthService) {
+        function MainCtrl($scope, $rootScope, AuthService) {
 
             var vm = this;
 
@@ -24,6 +24,19 @@
             $rootScope.$on('logout', function () {
                 vm.loggedIn = false;
                 vm.username = '';
+            });
+
+            $scope.$watch('currentUser.id', function(value) {
+                if (!value) {
+                    return;
+                }
+
+
+                console.log("value", value);
+
+                vm.loggedIn = true;
+                vm.username = AuthService.getUsername();
+
             });
 
             init();
@@ -40,6 +53,10 @@
                 if(AuthService.isAuthenticated()) {
                     vm.loggedIn = true;
                     vm.username = AuthService.getUsername();
+
+
+                    // TODO get user's bonsais
+
                 }
             }
 
