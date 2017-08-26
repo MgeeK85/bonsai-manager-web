@@ -1,3 +1,6 @@
+
+@import "variables";
+
 .app {
   height: 100%;
   display: flex;
@@ -9,6 +12,9 @@
   padding-top: 5em;
 }
 
+.content-full {
+  background-color: $background-light;
+}
 
 .fill-height-container {
   height: 85%;
@@ -27,7 +33,6 @@
 /* equal card height */
 .row-equal > div[class*='col-'] {
   display: flex;
-  flex: 1 0 auto;
 }
 
 .row-equal .card {
@@ -65,25 +70,5 @@
   .content {
     padding-top: 1em;
     padding-left: 64px;
-  }
-
-
-  .top,
-  .bottom {
-    position: fixed;
-    left: 0;
-    right: 0;
-  }
-
-  .top {
-    height: 60%;
-    top: 0;
-    /*background: url("images/shutterstock_220614172.jpg") no-repeat;*/
-  }
-
-  .bottom {
-    height: 40%;
-    bottom: 0;
-    background-color: #FFFFFF;
   }
 }

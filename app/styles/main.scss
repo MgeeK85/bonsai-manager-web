@@ -1,6 +1,9 @@
 // bower:scss
 // endbower
 
+@import "variables";
+
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -15,6 +18,15 @@ body {
 
 body {
   padding: 0;
+  font-family: $font-family;
+}
+
+.heading-elegant{
+  font-family: $font-family-headings;
+}
+
+.main-container {
+  height: 100%;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -61,12 +73,61 @@ body {
   }
 }
 
+.bg {
+  /* The image used */
+  background-image: url("../images/186164302.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* BUTTONS */
+.btn-primary {
+  border-color: $primary;
+  background-color: $primary;
+
+  &:hover {
+    border-color: $primary-light;
+    background-color: $primary-light;
+  }
+}
+
+
+
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
 
   p + h4 {
     margin-top: 28px;
+  }
+}
+
+@media (min-width: 48em) {
+
+  .top,
+  .bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  .top {
+    height: 60%;
+    top: 0;
+    background-color: $background-light;
+  }
+
+  .bottom {
+    border-top: 2px solid $navigation;
+    height: 40%;
+    bottom: 0;
+    background-color: $color1;
   }
 }
 

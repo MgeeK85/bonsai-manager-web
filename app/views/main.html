@@ -1,6 +1,25 @@
 
 <div ng-show="!main.loggedIn">
-    <img class="welcome-img" src="../images/shutterstock_220614172.jpg" />
+    <div class="top bg">
+
+    </div>
+
+    <div class="bottom">
+        <div class="content">
+            <div class="container-fluid fill-height-container text-center">
+                <h1 class="display-1 heading-elegant"><strong>Welcome to Bonsai Manager</strong></h1>
+
+                <br/>
+
+                <h4>This application allows to keep all information about your Bonsai collection.</h4>
+
+                <br/>
+                <br/>
+
+                Click to login: <button ng-click="main.openLogin()" class="button">Login</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div ng-show="main.loggedIn">
@@ -11,11 +30,11 @@
                 <!-- HEADER -->
                 <div class="row">
                     <div class="col col-sm-12">
-                        <h1>Bonsai Manager</h1>
+                        <h1 class="display-4 heading-elegant">Bonsai Manager</h1>
                     </div>
                 </div>
 
-                <br/>
+                <br/><br/>
 
                 <!-- CAROUSEL -->
                 <div class="row">
@@ -26,102 +45,59 @@
 
 
                     <div class="col col-sm-10">
-                        <section class="carousel slide" data-ride="carousel" id="postsCarousel">
+                        <section class="carousel slide" data-ride="carousel" data-interval="false" id="postsCarousel">
 
-                            <div class="container  carousel-inner">
-                                <div class="row row-equal carousel-item active">
+                            <div class="container carousel-inner">
+
+
+                                <div class="row row-equal carousel-item" ng-class="{active:!$index}" ng-repeat="bonsai in main.bonsais track by $index">
 
                                     <div class="col-md-4">
-                                        <div class="card">
+                                        <div class="card" ui-sref="app.bonsaidetail({id: bonsai.id})">
                                             <div class="card-img-top card-img-top-250">
-                                                <img class="img-fluid" src="http://i.imgur.com/EW5FgJM.png" alt="Carousel 1">
+                                                <img class="figure-img img-fluid float-right" src="http://via.placeholder.com/250x250" alt="test">
                                             </div>
                                             <div class="card-body">
-                                                <h6 class="small text-wide">Insight</h6>
-                                                <h2>
-                                                    <a href>Why Stuff Happens Every Year.</a>
-                                                </h2>
+                                                <h6 class="small text-wide">{{bonsai.species}}</h6>
+                                                <h3> {{bonsai.name}}</h3>
+                                                <h5>Style:{{bonsai.style}}</h5>
+                                                <h5>Age: {{bonsai.age}}</h5>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-4" >
                                         <div class="card">
                                             <div class="card-img-top card-img-top-250">
-                                                <img class="img-fluid" src="http://i.imgur.com/Hw7sWGU.png" alt="Carousel 2">
+                                                <img class="figure-img img-fluid float-right" src="http://via.placeholder.com/250x250" alt="test">
                                             </div>
                                             <div class="card-body">
-                                                <h6 class="small text-wide">Development</h6>
-                                                <h2>
-                                                    <a href>How to Make Every Line Count.</a>
-                                                </h2>
+                                                <h6 class="small text-wide">{{main.bonsais[$index+1].species}}</h6>
+                                                <h3> {{main.bonsais[$index+1].name}}</h3>
+                                                <h5>Style:{{main.bonsais[$index+1].style}}</h5>
+                                                <h5>Age: {{main.bonsais[$index+1].age}}</h5>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-4" >
                                         <div class="card">
                                             <div class="card-img-top card-img-top-250">
-                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 3">
+                                                <img class="figure-img img-fluid float-right" src="http://via.placeholder.com/250x250" alt="test">
                                             </div>
                                             <div class="card-body">
-                                                <h6 class="small text-wide">Design</h6>
-                                                <h2>
-                                                    <a href>Responsive is Essential.</a>
-                                                </h2>
+                                                <h6 class="small text-wide">{{main.bonsais[$index+2].species}}</h6>
+                                                <h3> {{main.bonsais[$index+2].name}}</h3>
+                                                <h5>Style:{{main.bonsais[$index+2].style}}</h5>
+                                                <h5>Age: {{main.bonsais[$index+2].age}}</h5>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
-                                <div class="row row-equal carousel-item">
-                                    <div class="col-md-4">
-                                        <div class="card">
-                                            <div class="card-img-top card-img-top-250">
-                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 4">
-                                            </div>
-                                            <div class="card-body">
-                                                <h6 class="small text-wide">Another</h6>
-                                                <h2>
-                                                    <a href>Tagline or Call-to-action.</a>
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card">
-                                            <div class="card-img-top card-img-top-250">
-                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 5">
-                                            </div>
-                                            <div class="card-body">
-                                                <h6 class="small text-wide">Category 1</h6>
-                                                <h2>
-                                                    <a href>This is a Blog Title.</a>
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 fadeIn wow">
-                                        <div class="card">
-                                            <div class="card-img-top card-img-top-250">
-                                                <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 6">
-                                            </div>
-                                            <div class="card-body">
-                                                <h6 class="small text-wide">Category 3</h6>
-                                                <h2>
-                                                    <a href>Catchy Title of a Blog Post.</a>
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
-
-
-
-
-
-
                         </section>
                     </div>
 
@@ -148,7 +124,13 @@
                             </div>
                             <div class="card-body">
 
-                                box 1
+                                <h1>Bonsai Collection by {{main.username}}</h1>
+
+                                <br/>
+
+                                <h4>Total number of Bonsai: {{main.bonsais.size}}</h4>
+
+
 
 
                             </div>
@@ -169,8 +151,12 @@
 
                 </div>
             </div>
+
+
         </div>
     </div>
+
+
 </div>
 
 

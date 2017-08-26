@@ -12,7 +12,7 @@
     angular.module('bonsaiManagerWebApp')
         .controller('NewEditCtrl', NewEditCtrl);
 
-    function NewEditCtrl($scope, $rootScope, $state, $stateParams, User, Bonsai, AuthService) {
+    function NewEditCtrl($scope, $rootScope, $log, $state, $stateParams, Bonsai, AuthService) {
 
         var vm = this;
 
@@ -95,41 +95,23 @@
 
             if(vm.editMode) {
 
-                console.log("update", vm.bonsai);
+                $log.info("update", vm.bonsai);
 
-                /*
-                {"name":"test",
-                "species":"test","age":10,"height":20,"diameter":30,"style":"test","pot":"sdf","updated_at":"2017-08-24T18:18:40.713Z","id":"599f1880f43edb092c8e840a","userId":"599bc7468cb1c005ca951c12"}
-
-                */
-                var bonsaiToUpdate = {
-                    "name":"test",
-                    "species":"test",
-                    "age":10,
-                    "height":20,
-                    "diameter":30,
-                    "style":"test",
-                    "pot":"sdf",
-                    "id":"599f1880f43edb092c8e840a",
-                    "userId":"599bc7468cb1c005ca951c12"}
-                ;
-
-                // TODO
-                Bonsai.upsert( bonsaiToUpdate).$promise.then(
+                Bonsai.upsert( vm.bonsai).$promise.then(
                     function(data) {
 
-                        console.log("bonsai saved", data);
+                        $log.info("bonsai saved", data);
                         $state.go('app.list');
                     }
                 );
             } else {
 
-                console.log("create", vm.bonsai);
+                $log.info("create", vm.bonsai);
 
                 Bonsai.create(vm.bonsai).$promise.then(
                     function(data) {
 
-                        console.log("bonsai saved", data);
+                        $log.info("bonsai saved", data);
                         $state.go('app.list');
                     }
                 );

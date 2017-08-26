@@ -12,9 +12,13 @@
     angular.module('bonsaiManagerWebApp')
         .controller('MainCtrl', MainCtrl);
 
-        function MainCtrl($scope, $rootScope, AuthService) {
+        function MainCtrl($scope, $rootScope, $state, ngDialog, User, AuthService) {
 
             var vm = this;
+
+            vm.openLogin = openLogin;
+            vm.bonsaiDetail = bonsaiDetail;
+            vm.getSecondIndex = getSecondIndex;
 
             $rootScope.$on('login:Successful', function () {
                 vm.loggedIn = AuthService.isAuthenticated();
@@ -35,7 +39,18 @@
                 console.log("value", value);
 
                 vm.loggedIn = true;
-                vm.username = AuthService.getUsername();
+
+                User.bonsais({ id: 'me' })
+                    .$promise.then(
+                    function (response) {
+                        vm.bonsais = response;
+
+                        console.log("bonsais", vm.bonsais);
+
+                    },
+                    function (response) {
+                        vm.message = "Error: " + response.status + " " + response.statusText;
+                    });
 
             });
 
@@ -46,19 +61,27 @@
 
             function init() {
 
-                vm.loggedIn = false;
-                vm.username = '';
 
-
-                if(AuthService.isAuthenticated()) {
-                    vm.loggedIn = true;
-                    vm.username = AuthService.getUsername();
-
-
-                    // TODO get user's bonsais
-
-                }
             }
 
+            function getSecondIndex(index) {
+                if(vm.bonsais.length>=0)
+                    return vm.bonsais.length;
+                else
+                    return index;
+            }
+
+            function openLogin() {
+                ngDialog.open({ template: 'views/login.html', scope: $scope,
+                    className: 'ngdialog-theme-default', controller:"LoginCtrl" });
+            }
+
+            function bonsaiDetail(bonsaiId) {
+                console.log("bonsai id", bonsaiId);
+
+                if(bonsaiId) {
+                    $state.go('app.bonsaidetail', { id: bonsaiId});
+                }
+            }
         }
 })();

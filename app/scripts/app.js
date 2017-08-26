@@ -13,8 +13,7 @@ angular
     'ngResource',
     'ngDialog',
     'ui.router',
-    'lbServices',
-    'bonsaiManagerWebApp.services'
+    'lbServices'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
       $stateProvider

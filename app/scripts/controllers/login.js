@@ -17,9 +17,9 @@
 
             //var vm = this;
 
-            //vm.facebookLogin = $facebookLogin;
-            //vm.googleLogin = $googleLogin;
-            //vm.twitterLogin = $twitterLogin;
+            $scope.facebookLogin = $facebookLogin;
+            $scope.googleLogin = $googleLogin;
+            $scope.twitterLogin = $twitterLogin;
 
 
             $scope.doLogin = function() {
