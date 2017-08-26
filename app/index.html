@@ -36,6 +36,9 @@
 
     <div ui-view="content" class="main-container"></div>
 
+    <div id="loaderDiv" loader>
+      <img src="images/ajax-loader.gif" class="ajax-loader"/>
+    </div>
 
 
 
@@ -61,8 +64,10 @@
     <script src="scripts/controllers/newedit.js"></script>
     <script src="scripts/controllers/bonsaidetail.js"></script>
     <script src="scripts/controllers/list.js"></script>
+    <script src="scripts/directives/loader.directive.js"></script>
     <script src="scripts/services/lb-services.js"></script>
     <script src="scripts/services/auth.js"></script>
+    <script src="scripts/services/spinner.interceptor.js"></script>
     <!-- endbuild -->
 </body>
 </html>

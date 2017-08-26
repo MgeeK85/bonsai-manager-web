@@ -85,8 +85,8 @@ angular
                     // Transform **all** $http calls so that requests that go to `/`
                     // instead go to a different origin, in this case localhost:3000
                     if (req.url.charAt(0) === '/') {
-                        //req.url = 'http://localhost:3000' + req.url;
-                        req.url = 'https://bonsai-manager.mybluemix.net' + req.url;
+                        req.url = 'http://localhost:3000' + req.url;
+                        //req.url = 'https://bonsai-manager.mybluemix.net' + req.url;
 
                         console.log("interceptor req url: ", req.url);
 
@@ -123,4 +123,38 @@ angular
         if (LoopBackAuth.accessTokenId && !$rootScope.currentUser) {
             AuthService.refresh(LoopBackAuth.accessTokenId);
         }
+
+
+
+        // Catching events broadcasted by spinnerInterceptor
+        $rootScope.$on('loading:show', function() {
+            if (!$rootScope.stateChanging)
+                showLoadingSpinner();
+        });
+        $rootScope.$on('loading:hide', function(event, response) {
+            if (!$rootScope.stateChanging)
+                hideLoadingSpinner();
+        });
+        $rootScope.$on('loading:error', function(event, rejection) {
+            hideLoadingSpinner();
+        });
+
+        var showLoadingSpinner = function() {
+
+            console.log("show loader");
+
+            /*
+            $ionicLoading.show({
+                template: '<i class="icon ion-loading-d"></i>',
+                showBackdrop: true,
+                maxWidth: 200,
+                showDelay: 500
+            });
+            */
+        };
+        var hideLoadingSpinner = function() {
+            console.log("hide loader");
+            //$ionicLoading.hide();
+        };
+
     }]);
