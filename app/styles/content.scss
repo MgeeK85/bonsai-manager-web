@@ -13,21 +13,13 @@
 }
 
 .content-full {
-  background-color: $background-light;
-}
-
-.fill-height-container {
-  height: 85%;
-}
-
-.fill-height {
-  height: 100%;
+  //background-color: $background-light;
+  background-image: url("../images/retina_wood_@2X.png");
 }
 
 .welcome-img {
   width: 100%;
 }
-
 
 /* CAROUSEL */
 /* equal card height */
@@ -53,9 +45,11 @@
   display: flex;
 }
 
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
+  left: 40%;
 }
 
 
@@ -65,10 +59,24 @@
   overflow:hidden;
 }
 
+#bonsaisCarousel {
+  .card-body {
+    min-height: 210px;
+  }
+}
+
 
 @media (min-width: 48em) {
   .content {
     padding-top: 1em;
     padding-left: 64px;
+  }
+
+  .fill-height-container {
+    height: 85%;
+  }
+
+  .fill-height {
+    height: 100%;
   }
 }

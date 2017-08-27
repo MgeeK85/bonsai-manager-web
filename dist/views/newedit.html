@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content content-full">
     <div class="container-fluid fill-height-container">
 
         <div class="row justify-content-md-center fill-height">
@@ -6,7 +6,10 @@
             <div class="col-md-8 fill-height">
                 <div class="card fill-height">
                     <div class="card-body">
-                        <h4 class="card-title">Add or edit bonsai</h4>
+                        <h4 class="card-title">
+                            <span ng-show="!newedit.editMode">Add Bonsai</span>
+                            <span ng-show="newedit.editMode">Edit Bonsai</span>
+                        </h4>
                         <p class="card-text">
 
 
@@ -24,29 +27,33 @@
 
                                         <!-- STYLE-->
                                         <label for="inputStyle" class="col-form-label">Style</label>
-                                        <input type="text" ng-model="newedit.bonsai.style" class="form-control" id="inputStyle" placeholder="Inser style...">
+                                        <input type="text" ng-model="newedit.bonsai.style" class="form-control" id="inputStyle" placeholder="Insert style...">
 
                                         <!-- AGE -->
                                         <label for="inputAge" class="col-form-label">Age</label>
-                                        <input type="text" ng-model="newedit.bonsai.age" class="form-control" id="inputAge">
+                                        <input type="text" ng-model="newedit.bonsai.age" class="form-control" id="inputAge" placeholder="Insert age...">
 
+                                        <div class="form-row">
+                                            <!-- HEIGHT -->
+                                            <div class="col-sm-4">
+                                                <label for="inputHeight" class="col-form-label">Height (cm)</label>
+                                                <input type="text" ng-model="newedit.bonsai.height" class="form-control" id="inputHeight" placeholder="Insert height...">
+                                            </div>
 
-                                        <!-- HEIGHT -->
-                                        <label for="inputHeight" class="col-form-label">Height</label>
-                                        <input type="text" ng-model="newedit.bonsai.height" class="form-control" id="inputHeight">
-
-                                        <!-- DIAMETER -->
-                                        <label for="inputDiameter" class="col-form-label">Diameter</label>
-                                        <input type="text" ng-model="newedit.bonsai.diameter" class="form-control" id="inputDiameter">
-
+                                            <!-- DIAMETER -->
+                                            <div class="col-sm-4">
+                                                <label for="inputDiameter" class="col-form-label">Diameter (cm)</label>
+                                                <input type="text" ng-model="newedit.bonsai.diameter" class="form-control" id="inputDiameter" placeholder="Insert diameter...">
+                                            </div>
+                                        </div>
 
                                         <!-- POT -->
                                         <label for="inputPot" class="col-form-label">Pot</label>
-                                        <input type="text" ng-model="newedit.bonsai.pot" class="form-control" id="inputPot">
+                                        <input type="text" ng-model="newedit.bonsai.pot" class="form-control" id="inputPot" placeholder="Insert pot type...">
                                     </div>
 
                                     <!-- IMAGE -->
-                                    <div class="form-group col-sm-4">
+                                    <div class="form-group col-sm-4 text-center">
                                         <figure class="figure">
                                             <img class="figure-img img-fluid rounded float-right" src="http://via.placeholder.com/250x350" alt="A generic square placeholder image with rounded corners in a figure.">
                                         </figure>
@@ -60,7 +67,7 @@
 
                                     <!-- NOTES -->
                                     <label for="exampleFormControlTextarea1">Notes</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" ng-model="newedit.bonsai.note" rows="3"></textarea>
 
                                 </div>
 

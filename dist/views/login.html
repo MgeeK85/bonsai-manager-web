@@ -23,16 +23,17 @@
                     <input type="checkbox" ng-model="rememberMe"> Remember me
                 </label>
             </div>
-            <button type="submit" class="btn btn-info btn-sm">Sign in</button>
             <button type="button" class="btn btn-default btn-sm" ng-click="closeThisDialog('Cancel')">Cancel</button> &nbsp; &nbsp;
 
             <button type="button" class="btn btn-default btn-sm" ng-click="openRegister()">Click here to register</button>
+            <button type="submit" class="btn btn-info btn-sm pull-right">Sign in</button>
         </form>
     </div>
 
     <br/>
 
 
+    <!--
     <div class="login" ng-show="!user.data">
 
         <button ng-click="facebookLogin()"><img src="//i.stack.imgur.com/LKMP7.png"></button>
@@ -41,5 +42,6 @@
 
         <button ng-click="googleLogin()">Sign-in GOOGLE+</button>
     </div>
+    -->
 
 </div>

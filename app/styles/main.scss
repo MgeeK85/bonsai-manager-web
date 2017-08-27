@@ -75,7 +75,7 @@ body {
 
 .bg {
   /* The image used */
-  background-image: url("../images/186164302.jpg");
+  background-image: url("../images/186164302.jpg") !important;
 
   /* Full height */
   height: 100%;
@@ -96,6 +96,17 @@ body {
     background-color: $primary-light;
   }
 }
+
+/* CARDs */
+.card {
+  border-color: $primary-dark;
+}
+
+.card-header {
+  color: #FFF;
+  background-color: $navigation;
+}
+
 
 #loaderDiv {
   position: fixed;
@@ -129,7 +140,8 @@ body {
 @media (min-width: 48em) {
 
   .top,
-  .bottom {
+  .bottom,
+  .bottom-welcome{
     position: fixed;
     left: 0;
     right: 0;
@@ -138,10 +150,17 @@ body {
   .top {
     height: 60%;
     top: 0;
-    background-color: $background-light;
+    background-image: url("../images/retina_wood_@2X.png");
   }
 
   .bottom {
+    border-top: 2px solid $navigation;
+    height: 40%;
+    bottom: 0;
+    background-image: url("../images/black-Linen_@2X.png");
+  }
+
+  .bottom-welcome {
     border-top: 2px solid $navigation;
     height: 40%;
     bottom: 0;

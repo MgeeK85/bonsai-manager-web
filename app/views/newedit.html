@@ -36,13 +36,13 @@
                                         <div class="form-row">
                                             <!-- HEIGHT -->
                                             <div class="col-sm-4">
-                                                <label for="inputHeight" class="col-form-label">Height</label>
+                                                <label for="inputHeight" class="col-form-label">Height (cm)</label>
                                                 <input type="text" ng-model="newedit.bonsai.height" class="form-control" id="inputHeight" placeholder="Insert height...">
                                             </div>
 
                                             <!-- DIAMETER -->
                                             <div class="col-sm-4">
-                                                <label for="inputDiameter" class="col-form-label">Diameter</label>
+                                                <label for="inputDiameter" class="col-form-label">Diameter (cm)</label>
                                                 <input type="text" ng-model="newedit.bonsai.diameter" class="form-control" id="inputDiameter" placeholder="Insert diameter...">
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
 
                                     <!-- NOTES -->
                                     <label for="exampleFormControlTextarea1">Notes</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" ng-model="newedit.bonsai.note" rows="3"></textarea>
 
                                 </div>
 

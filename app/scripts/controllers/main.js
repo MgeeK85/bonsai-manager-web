@@ -12,7 +12,7 @@
     angular.module('bonsaiManagerWebApp')
         .controller('MainCtrl', MainCtrl);
 
-        function MainCtrl($scope, $rootScope, $state, ngDialog, User, AuthService) {
+        function MainCtrl($scope, $rootScope, $state, $filter, $log, ngDialog, User, AuthService) {
 
             var vm = this;
 
@@ -47,6 +47,39 @@
 
                         console.log("bonsais", vm.bonsais);
 
+                        vm.data = [];
+
+                        if(vm.bonsais && vm.bonsais.length > 0) {
+
+                            // compute species occurrences
+                            var speciesOccurences = vm.bonsais.reduce(function(sums,entry){
+                                sums[entry.species] = (sums[entry.species] || 0) + 1;
+                                return sums;
+                            },{});
+
+                            angular.forEach(speciesOccurences, function(value, key) {
+                                console.log(key + ': ' + value.species);
+
+                                vm.data.push({
+                                    key: $filter('limitTo')(key, 10),
+                                    y: value
+                                })
+                            });
+
+                            $log.info("result", speciesOccurences);
+
+                            var totalAges = 0;
+
+                            // compute mean age
+                            angular.forEach(vm.bonsais, function(value, key) {
+                                totalAges += value.age;
+                            });
+
+                            vm.meanAge = totalAges / vm.bonsais.length;
+
+                            $log.info("mean age", vm.meanAge);
+                        }
+
                     },
                     function (response) {
                         vm.message = "Error: " + response.status + " " + response.statusText;
@@ -62,9 +95,36 @@
             function init() {
 
 
+
+                /* Chart options */
+                vm.options = {
+                    chart: {
+                        type: 'pieChart',
+                        height: 300,
+                        x: function(d){return d.key;},
+                        y: function(d){return d.y;},
+                        showLabels: true,
+                        duration: 500,
+                        labelThreshold: 0.01,
+                        labelSunbeamLayout: true,
+                        legend: {
+                            margin: {
+                                top: 5,
+                                right: 35,
+                                bottom: 5,
+                                left: 0
+                            }
+                        }
+                    }
+                };
+
+
+
+
             }
 
             function getSecondIndex(index) {
+                console.log("index", index);
                 if(vm.bonsais.length>=0)
                     return vm.bonsais.length;
                 else

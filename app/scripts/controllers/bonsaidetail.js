@@ -30,7 +30,7 @@
                     function (response) {
                         vm.bonsai = response;
 
-
+                        console.log("bonsai", vm.bonsai);
                         //$scope.showDish = true;
                     },
                     function (response) {
@@ -48,15 +48,6 @@
 
         function init() {
 
-            vm.loggedIn = false;
-            vm.username = '';
-
-            console.log("init", AuthService.isAuthenticated());
-
-            if(AuthService.isAuthenticated()) {
-                vm.loggedIn = true;
-                vm.username = AuthService.getUsername();
-            }
         }
 
 

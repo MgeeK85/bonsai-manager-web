@@ -5,6 +5,7 @@
   position: fixed;
   width: 100%;
   background-color: $navigation;
+  border-color: $primary-dark;
   display: flex;
   justify-content: space-between;
   overflow: auto;
@@ -38,7 +39,7 @@
 
 .sidebar-item.active,
 .sidebar-item:hover {
-  background-color: #5093e1;
+  background-color: $primary;
 }
 
 @media (min-width: 48em) {
