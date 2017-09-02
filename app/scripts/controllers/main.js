@@ -30,6 +30,8 @@
                 vm.username = '';
             });
 
+
+
             $scope.$watch('currentUser.id', function(value) {
                 if (!value) {
                     return;

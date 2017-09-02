@@ -25,9 +25,6 @@ body {
   font-family: $font-family-headings;
 }
 
-.main-container {
-  height: 100%;
-}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -75,7 +72,7 @@ body {
 
 .bg {
   /* The image used */
-  background-image: url("../images/186164302.jpg") !important;
+  background-image: url("../images/Depositphotos_7505822_original.jpg") !important;
 
   /* Full height */
   height: 100%;
@@ -137,6 +134,8 @@ body {
   }
 }
 
+
+
 @media (min-width: 48em) {
 
   .top,
@@ -150,7 +149,11 @@ body {
   .top {
     height: 60%;
     top: 0;
-    background-image: url("../images/retina_wood_@2X.png");
+    background-image: url("../images/Depositphotos_7505822_original.jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .bottom {
@@ -165,6 +168,12 @@ body {
     height: 40%;
     bottom: 0;
     background-color: $color1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main-container {
+    height: 100%;
   }
 }
 

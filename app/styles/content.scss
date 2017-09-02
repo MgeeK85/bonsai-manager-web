@@ -22,6 +22,12 @@
 }
 
 /* CAROUSEL */
+
+.carousel-stripe {
+  background-image: url("../images/retina_wood_@2X.png");
+  padding: 2em 0;
+}
+
 /* equal card height */
 .row-equal > div[class*='col-'] {
   display: flex;
@@ -52,6 +58,19 @@
   left: 40%;
 }
 
+.btn-outline-secondary {
+  color: $navigation;
+  background-color: transparent;
+  background-image: none;
+  border-color: $navigation;
+}
+
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: $navigation;
+  border-color: $navigation;
+}
+
 
 /* control image height */
 .card-img-top-250 {
@@ -60,11 +79,19 @@
 }
 
 #bonsaisCarousel {
+
+  .card {
+    cursor: pointer;
+  }
+
   .card-body {
-    min-height: 210px;
+    //min-height: 210px;
   }
 }
 
+.graph-container {
+  overflow: scroll;
+}
 
 @media (min-width: 48em) {
   .content {
